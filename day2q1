@@ -1,0 +1,9 @@
+#include<stdio.h>
+
+int main(){
+   int l,b,p,a;
+   printf("Enter Length and Breadth\n");
+   scanf("%d %d",&a,&b);
+   printf("perimeter=%d,Area=%d",2*(a+b),a*b);
+   return 0;
+}
