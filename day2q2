@@ -1,1 +1,9 @@
+#include<stdio.h>
 
+int main(){
+   int r;
+   printf("Enter Radius:\n");
+   scanf("%d",&r);
+   printf("Area: %f ,Circumference: %f",(3.14*r*r),(2*3.14*r));
+   return 0;
+}
