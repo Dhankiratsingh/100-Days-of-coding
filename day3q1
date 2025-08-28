@@ -1,0 +1,8 @@
+#include <stdio.h>
+
+int main() {
+    int t;
+    printf("Enter temp in Celsius: ");
+    scanf("%d",&t);
+    printf("Fahrenheit: %d",(t*9/5)+32);
+}
