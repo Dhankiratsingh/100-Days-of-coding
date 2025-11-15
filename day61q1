@@ -1,0 +1,42 @@
+#include <stdio.h>
+
+int main() {
+    int n, k;
+    printf("Enter number of elements: ");
+    scanf("%d", &n);
+
+    int arr[n];
+    printf("Enter %d elements: ", n);
+    for(int i = 0; i < n; i++) {
+        scanf("%d", &arr[i]);
+    }
+
+    printf("Enter k: ");
+    scanf("%d", &k);
+
+    if(k > n || k <= 0) {
+        printf("Invalid value of k\n");
+        return 0;
+    }
+
+    // Traverse all windows of size k
+    for(int i = 0; i <= n - k; i++) {
+        int firstNeg = 0; // default is 0 (no negative found)
+
+        // Check for first negative number in this window
+        for(int j = i; j < i + k; j++) {
+            if(arr[j] < 0) {
+                firstNeg = arr[j];
+                break;
+            }
+        }
+
+        printf("%d", firstNeg);
+        if(i != n - k)
+            printf(" ");
+    }
+
+    printf("\n");
+    return 0;
+}
+ 
