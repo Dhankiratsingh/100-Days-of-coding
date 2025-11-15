@@ -1,31 +1,23 @@
 #include <stdio.h>
 #include <ctype.h>
 
-int is_vowel(char ch) {
-    ch = tolower(ch);
-    return (ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u');
-}
-
 int main() {
-    FILE *file = fopen("input.txt", "r");
-    if (!file) {
-        printf("Could not open file.\n");
+    FILE *fin = fopen("input.txt", "r");
+    FILE *fout = fopen("output.txt", "w");
+    if (!fin || !fout) {
+        printf("Error opening file.\n");
         return 1;
     }
 
-    int vowels = 0, consonants = 0;
     char ch;
-    while ((ch = fgetc(file)) != EOF) {
-        if (isalpha(ch)) {
-            if (is_vowel(ch))
-                vowels++;
-            else
-                consonants++;
-        }
+    while ((ch = fgetc(fin)) != EOF) {
+        if (islower(ch))
+            ch = toupper(ch);
+        fputc(ch, fout);
     }
-    fclose(file);
 
-    printf("Vowels: %d\n", vowels);
-    printf("Consonants: %d\n", consonants);
+    fclose(fin);
+    fclose(fout);
+    printf("Conversion complete. Check output.txt for results.\n");
     return 0;
 }
