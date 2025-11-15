@@ -1,0 +1,30 @@
+#include <stdio.h>
+
+int main() {
+    int n;
+    printf("Enter size of array: ");
+    scanf("%d", &n);
+
+    int arr[n];
+    printf("Enter elements of array:\n");
+    for (int i = 0; i < n; i++) {
+        scanf("%d", &arr[i]);
+    }
+
+    // Since only one element is repeated, we can use XOR to find it in one iteration
+    int xor_all = 0;
+
+    // XOR all elements in the array
+    for (int i = 0; i < n; i++) {
+        xor_all ^= arr[i];
+    }
+
+    // XOR all numbers from 0 to n-2 (since one number repeats, there are n-1 unique numbers)
+    for (int i = 0; i < n - 1; i++) {
+        xor_all ^= i;
+    }
+
+    printf("Repeated element: %d", xor_all);
+
+    return 0;
+}
