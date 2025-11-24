@@ -1,0 +1,26 @@
+#include <stdio.h>
+
+enum Gender { MALE, FEMALE, OTHER };
+
+struct Person {
+    char name[50];
+    enum Gender gender;
+};
+
+int main() {
+    struct Person p;
+    const char *genderNames[] = { "MALE", "FEMALE", "OTHER" };
+
+    printf("Enter name: ");
+    scanf("%s", p.name);
+
+    printf("Enter gender (0 for MALE, 1 for FEMALE, 2 for OTHER): ");
+    int g;
+    scanf("%d", &g);
+    p.gender = (enum Gender)g;
+
+    printf("Name: %s\n", p.name);
+    printf("Gender: %s\n", genderNames[p.gender]);
+
+    return 0;
+}
