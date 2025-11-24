@@ -1,0 +1,23 @@
+#include <stdio.h>
+
+enum Role { ADMIN, USER, GUEST };
+
+int main() {
+    enum Role r;
+
+    for(r = ADMIN; r <= GUEST; r++) {
+        switch(r) {
+            case ADMIN:
+                printf("ADMIN: Full access granted.\n");
+                break;
+            case USER:
+                printf("USER: Limited access granted.\n");
+                break;
+            case GUEST:
+                printf("GUEST: View-only access granted.\n");
+                break;
+        }
+    }
+
+    return 0;
+}
